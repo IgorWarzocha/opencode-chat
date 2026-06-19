@@ -13,10 +13,14 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist",
+    "postclean": "bun run clean:bundle",
     "build": "npm run clean && tsc",
     "prepublishOnly": "npm run build",
     "download-model": "bun dist/script/download-model.js",
-    "semantic-index": "bun dist/script/semantic-index.js"
+    "semantic-index": "bun dist/script/semantic-index.js",
+    "bundle": "bun build index.ts --target=bun --outdir=plugin/opencode-chat",
+    "postbundle": "bun hack/prepare-local-plugin.ts",
+    "clean:bundle": "rm -rf plugin/opencode-chat"
   },
   "dependencies": {
     "fastembed": "latest"

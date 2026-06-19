@@ -8,3 +8,5 @@ dist
 *.sqlite
 *.onnx
 models/
+
+/plugin/opencode-chat/
